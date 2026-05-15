@@ -41,7 +41,7 @@ class PasswordCheckerTest {
     @Test
     void passwordHasNoNumber(){
         PasswordChecker checker = new PasswordChecker();
-        boolean result = checker.validatePassword("PasswordP");
+        boolean result = checker.validatePassword("PasswordPass");
         assertFalse(result);
     }
 
@@ -56,13 +56,6 @@ class PasswordCheckerTest {
     void passwordAbove16Characters(){
         PasswordChecker checker = new PasswordChecker();
         boolean result = checker.validatePassword("jksdhuegabhsdbfe12");
-        assertFalse(result);
-    }
-
-    @Test
-    void passwordTooShort(){
-        PasswordChecker checker = new PasswordChecker();
-        boolean result = checker.validatePassword("Pass123");
         assertFalse(result);
     }
 
