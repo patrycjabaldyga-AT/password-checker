@@ -6,56 +6,106 @@ import static org.junit.jupiter.api.Assertions.*;
 class PasswordCheckerTest {
 
     @Test
-    void shouldReturnFalseWhenProvidedAnEmptyPassword() {
-        // arrange
+    void shouldReturnFalseWhenProvidedAnEmptyPasswordTest() {
+
+        // Arrange
         PasswordChecker checker = new PasswordChecker();
 
-        // act
+        // Act
         boolean result = checker.validatePassword("");
 
-        // assert
+        // Assert
         assertFalse(result);
     }
 
     @Test
-    void CheckPassword8Characters(){
+    void shouldReturnTrueWhenPasswordIsEightCharactersLettersOneCapitalAndNumbersTest(){
+
+        //Arrange:
         PasswordChecker checker = new PasswordChecker();
+
+        //Act
         boolean result = checker.validatePassword("Passw123");
+
+        //Assert:
         assertTrue(result);
     }
 
     @Test
-    void shouldReturnCorrectWhenPasswordCorrectFormat(){
+    void shouldReturnTrueWhenPasswordCorrectFormatTest(){
+
+        //Arrange:
         PasswordChecker checker = new PasswordChecker();
+
+        //Act:
         boolean result = checker.validatePassword("Password123");
+
+        //Assert:
         assertTrue(result);
     }
 
     @Test
-    void passwordTooLong(){
+    void shouldReturnFalseWhenPasswordIsTooLongTest(){
+
+        //Arrange:
         PasswordChecker checker = new PasswordChecker();
+
+        //Act:
         boolean result = checker.validatePassword("PasswordIsTooLongForThisExercise1");
+
+        //Assert:
         assertFalse(result);
     }
 
     @Test
-    void passwordHasNoNumber(){
+    void shouldReturnFalseWhenPasswordHasNoNumberTest(){
+
+        //Arrange:
         PasswordChecker checker = new PasswordChecker();
-        boolean result = checker.validatePassword("PasswordPass");
+
+        //Act:
+        boolean result = checker.validatePassword("PasswordP");
+
+        //Assert:
         assertFalse(result);
     }
 
     @Test
-    void justNumbersNoLetters(){
+    void shouldReturnFalseWhenPasswordHasJustNumbersNoLettersTest(){
+
+        //Arrange:
         PasswordChecker checker = new PasswordChecker();
+
+        //Act:
         boolean result = checker.validatePassword("12345678");
+
+        //Assert:
         assertFalse(result);
     }
 
     @Test
-    void passwordAbove16Characters(){
+    void shouldReturnFalseIfPasswordAbove16CharactersTest(){
+
+        //Arrange:
         PasswordChecker checker = new PasswordChecker();
-        boolean result = checker.validatePassword("jksdhuegabhsdbfe12");
+
+        //Act:
+        boolean result = checker.validatePassword("thispasswordBad12");
+
+        //Assert:
+        assertFalse(result);
+    }
+
+    @Test
+    void shouldReturnFalseIfPasswordIsTooShortTest(){
+
+        //Arrange:
+        PasswordChecker checker = new PasswordChecker();
+
+        //Act:
+        boolean result = checker.validatePassword("Pass123");
+
+        //Assert:
         assertFalse(result);
     }
 
